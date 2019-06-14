@@ -18,7 +18,7 @@ public class StudentMgrController {
     @RequestMapping(params = "btnInsert")
     public String insert(ModelMap model, @RequestParam("name") String name, @RequestParam("mark") Double mark,
             @RequestParam("major") String major) {
-        
+
         model.addAttribute("message", "Bạn gọi insert()");
         model.addAttribute("name", name);
         model.addAttribute("mark", mark);
@@ -28,9 +28,12 @@ public class StudentMgrController {
     }
 
     @RequestMapping(params = "btnUpdate")
-    public String update(ModelMap model) {
+    public String update(ModelMap model, Student student) {
+
         model.addAttribute("message", "Bạn gọi update()");
-        return "student-mgr";
+        model.addAttribute("student", student);
+
+        return "student/success2";
     }
 
     @RequestMapping(params = "btnDelete")
@@ -38,7 +41,7 @@ public class StudentMgrController {
         model.addAttribute("message", "Bạn gọi delete()");
         return "student-mgr";
     }
-    
+
     @RequestMapping(params = "btnReset")
     public String reset(ModelMap model) {
         model.addAttribute("message", "Bạn gọi nhập lại()");

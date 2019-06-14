@@ -4,16 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class StudentController {
 
-    @RequestMapping("/student/form")
+    @RequestMapping(value = "/student/form", method = RequestMethod.GET)
     public String showForm() {
         return "student/form";
     }
 
-    @RequestMapping("/student/save")
+    @RequestMapping(value = "/student/save", method = RequestMethod.POST)
     public String saveForm(HttpServletRequest request) {
 
         String name = request.getParameter("name");
